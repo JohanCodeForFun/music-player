@@ -7,7 +7,7 @@ export const useFavoriteStore = defineStore('favoriteStore', {
   }),
   actions: {
     addFavorite(meme: Meme) {
-      this.favorites.push(meme)
+      this.favorites.push({ ...meme })
     }
   }
   // getters
