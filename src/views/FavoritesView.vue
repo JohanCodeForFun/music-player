@@ -6,9 +6,16 @@ console.log(favoriteStore)
 </script>
 
 <template>
-  <h2>Your Favorite Memes</h2>
+  <div>
+    <h2>Your Favorite Memes</h2>
+    <button @click="favoriteStore.$reset()">empty favorites</button>
+  </div>
     <div class="meme-container" v-if="favoriteStore.favorites.length > 0">
-      <div class="card" v-for="favorite in favoriteStore.favorites">
+      <div 
+        class="card" 
+        v-for="favorite in favoriteStore.favorites"
+        :key="favorite.id"
+        >
         <h3>{{ favorite.name }}</h3>
         <img 
           :src="favorite.url" 
