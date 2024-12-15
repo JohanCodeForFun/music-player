@@ -7,7 +7,13 @@ export const useFavoriteStore = defineStore('favoriteStore', {
   }),
   actions: {
     addFavorite(meme: Meme) {
-      this.favorites.push({ ...meme })
+      const exists = this.favorites.find(fav => fav.id === meme.id)
+      if (!exists) {
+        this.favorites.push({ ...meme })
+      }
+    },
+    removeFavorite(id: string) {
+      this.favorites = this.favorites.filter(meme => meme.id !== id);
     }
   },
   getters: {
