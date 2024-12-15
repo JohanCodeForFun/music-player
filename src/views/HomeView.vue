@@ -2,19 +2,12 @@
   import { ref } from "vue";
   import { useMemeStore } from "@/stores/memeStore";
   import { useFavoriteStore } from "@/stores/favoriteStore";
-  import { type Meme } from "@/stores/memeStore";
   
+  const favoriteStore = useFavoriteStore();
   const memeStore = useMemeStore();
   memeStore.fetchMemes();
-
-  const favoriteStore = useFavoriteStore();
-
+  
   let index = ref<number>(0);
-
-  const addToFavorites = (meme: Meme) => {
-    favoriteStore.favorites.push(meme);
-  }
-
 </script>
 
 <template>
@@ -31,7 +24,7 @@
       </div>
       <div class="button-container">
         <button @click="index > 0 ? index-- : 0">Previous</button>
-        <button @click="addToFavorites(memeStore.memes[index])">Save meme</button>
+        <button @click="favoriteStore.addFavorite(memeStore.memes[index])">Save meme</button>
         <button @click="index++">Next</button>
       </div>
     </div>

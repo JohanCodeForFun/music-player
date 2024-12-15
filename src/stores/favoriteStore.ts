@@ -5,8 +5,10 @@ export const useFavoriteStore = defineStore('favoriteStore', {
   state: () => ({
     favorites: [] as Meme[]
   }),
-  // actions: () => {
-  //   addFavorite = ()
-  // }
+  actions: {
+    addFavorite(meme: Meme) {
+      this.favorites.push(meme)
+    }
+  }
   // getters
 })
