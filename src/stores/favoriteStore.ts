@@ -9,6 +9,10 @@ export const useFavoriteStore = defineStore('favoriteStore', {
     addFavorite(meme: Meme) {
       this.favorites.push({ ...meme })
     }
+  },
+  getters: {
+    favoritesCount(): number {
+      return this.favorites.length;
+    }
   }
-  // getters
 })
