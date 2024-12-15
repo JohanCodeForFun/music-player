@@ -36,7 +36,7 @@
   <main>
     <h2>Meme list</h2>
     <div class="meme-container" v-if="memes.length > 0">
-      <div>
+      <div class="card">
         <h3>{{ memes[index].name }}</h3>
         <img 
           :src="memes[index].url" 
@@ -46,6 +46,7 @@
       </div>
       <div class="button-container">
         <button @click="index > 0 ? index-- : 0">Previous</button>
+        <button>Save meme</button>
         <button @click="index++">Next</button>
       </div>
     </div>
@@ -55,21 +56,30 @@
 
 <style scoped>
 .meme-container {
-  max-width: 100%;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
 .responsive-image {
   max-width: 100%;
   height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .button-container {
-  /* width: 100%; */
   display: flex;
   justify-content: space-around;
-  background-color: red;
-  max-width: 200px;
+  max-width: 300px;
+  width: 100%;
 }
 </style>
