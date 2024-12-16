@@ -48,7 +48,7 @@
 .responsive-image {
   max-width: 100%;
   height: auto;
-  display: block;
+  max-height: 500px;
   margin: 0 auto;
 }
 
